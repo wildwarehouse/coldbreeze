@@ -1,0 +1,32 @@
+version: "3"
+volumes:
+  home:
+  workspace:
+  dot_ssh:
+    external:
+      name: ${DOT_SSH}
+  entrypoint:
+    external:
+      name: ${ENTRYPOINT}
+  bin:
+    external:
+      name: ${BIN}
+services:
+  chromium:
+    image: tidyrailroad/chromium:0.0.0
+    privileged: true
+    environment:
+      - DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - home:/root
+  luckystar:
+    image: tidyrailroad/cloud9:5.0.0
+    volumes:
+      - home:/root
+      - workspace:/workspace
+      - dot_ssh:/root/.ssh
+      - entrypoint:/srv/entrypoint
+      - bin:/root/bin
+    working_dir: /workspace
+    command: --listen 0.0.0.0 -w /workspace --auth user:password
