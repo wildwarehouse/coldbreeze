@@ -11,6 +11,9 @@ volumes:
   bin:
     external:
       name: ${BIN}
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
 services:
   chromium:
     image: tidyrailroad/chromium:0.0.0
@@ -34,3 +37,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     working_dir: /workspace
     command: --listen 0.0.0.0 -w /workspace --auth user:password
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    volumes:
+      - gitlab-config:/etc/gitlab
+      - gitlab-logs:/var/logs/gitlab
+      - gitlab-data:/var/opt/gitlab
