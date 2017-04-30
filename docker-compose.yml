@@ -1,11 +1,5 @@
 version: "3"
 volumes:
-  pictures:
-    external:
-      name: /home/${HOST_USER}/Pictures
-  desktop:
-    external:
-      name: /home/${HOST_USER}/Desktop
   home:
   workspace:
   dot_ssh:
@@ -34,8 +28,8 @@ services:
       - dot_ssh:/root/.ssh
       - entrypoint:/srv/entrypoint
       - bin:/root/bin
-      - pictures:/workspace/pictures:ro
-      - desktop:/workspace/desktop:ro
+      - /home/${HOST_USER}/Pictures:/workspace/pictures:ro
+      - /home/${HOST_USER}/Desktop:/workspace/desktop:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     working_dir: /workspace
