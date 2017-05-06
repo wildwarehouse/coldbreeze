@@ -2,7 +2,7 @@ version: "3"
 volumes:
   workspace:
     external:
-      name ${WORKSPACE}
+      name: ${WORKSPACE}
   dot_ssh:
     external:
       name: ${DOT_SSH}
