@@ -1,6 +1,8 @@
 version: "3"
 volumes:
   home:
+    external:
+      name: ${HOMEY}
   workspace:
     external:
       name: ${WORKSPACE}
