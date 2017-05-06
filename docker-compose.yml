@@ -25,14 +25,15 @@ services:
     volumes:
       - home:/srv/home
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - workspace:/opt
+      - workspace:/opt/workspace
+    command: "http://luckystar:8181"
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
       - workspace:/opt
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-    command: --listen 0.0.0.0 -w /opt/workspace --auth user:password
+    command: --listen 0.0.0.0 -w /opt/workspace/workspace --auth user:password
   gitlab:
     image: gitlab/gitlab-ce:latest
     restart: always
