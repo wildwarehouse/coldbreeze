@@ -29,7 +29,7 @@ services:
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - workspace:/opt
+      - workspace:/opt/workspace
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     command: --listen 0.0.0.0 -w /opt/workspace/workspace --auth user:password
