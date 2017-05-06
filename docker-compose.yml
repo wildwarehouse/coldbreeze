@@ -26,7 +26,6 @@ services:
       - home:/srv/home
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - workspace:/opt/workspace
-    command: "http://luckystar:8181"
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
