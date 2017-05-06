@@ -26,7 +26,7 @@ services:
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - home:/home/user
+      - home:/srv/home
       - workspace:/workspace
       - dot_ssh:/srv/dot_ssh:ro
       - bin:/srv/bin:ro
