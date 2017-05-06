@@ -34,8 +34,7 @@ services:
       - /home/${HOST_USER}/Desktop:/workspace/desktop:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-    working_dir: /workspace
-    command: --listen 0.0.0.0 -w /workspace --auth user:password
+    command: --listen 0.0.0.0 -w /home/user --auth user:password
   gitlab:
     image: gitlab/gitlab-ce:latest
     restart: always
