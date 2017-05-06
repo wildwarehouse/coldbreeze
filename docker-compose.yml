@@ -7,9 +7,6 @@ volumes:
   dot_ssh:
     external:
       name: ${DOT_SSH}
-  entrypoint:
-    external:
-      name: ${ENTRYPOINT}
   bin:
     external:
       name: ${BIN}
@@ -30,6 +27,8 @@ services:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
       - workspace:/opt/workspace
+      - dot_ssh:/srv/dot_ssh:ro
+      - bin:/srv/bin:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     command: --listen 0.0.0.0 -w /opt/workspace/workspace --auth user:password
