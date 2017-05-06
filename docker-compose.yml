@@ -24,9 +24,9 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - home:/root
   luckystar:
-    image: tidyrailroad/cloud9:5.0.0
+    image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - home:/root
+      - home:/home/user
       - workspace:/workspace
       - dot_ssh:/srv/dot_ssh:ro
       - bin:/srv/bin:ro
