@@ -1,8 +1,6 @@
 version: "3"
 volumes:
   home:
-    external:
-      name: ${HOMEY}
   workspace:
     external:
       name: ${WORKSPACE}
@@ -28,7 +26,6 @@ services:
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - home:/home
       - workspace:/opt/workspace
       - dot_ssh:/srv/dot_ssh:ro
       - bin:/srv/bin:ro
