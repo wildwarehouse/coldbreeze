@@ -1,5 +1,6 @@
 version: "3"
 volumes:
+  home:
   workspace:
     external:
       name: ${WORKSPACE}
@@ -22,11 +23,13 @@ services:
     environment:
       - DISPLAY
     volumes:
+      - home:/srv/home
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - workspace:/workspace
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
+      - home:/home/user
       - workspace:/workspace
       - dot_ssh:/srv/dot_ssh:ro
       - bin:/srv/bin:ro
