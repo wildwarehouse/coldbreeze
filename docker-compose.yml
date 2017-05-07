@@ -22,7 +22,6 @@ services:
     environment:
       - DISPLAY
     volumes:
-      - home:/srv/home
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - workspace:/opt/workspace
   luckystar:
