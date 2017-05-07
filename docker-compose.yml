@@ -1,17 +1,17 @@
 version: "3"
 volumes:
-  home:
-    external:
-      name: ${HOMEY}
   workspace:
     external:
       name: ${WORKSPACE}
-  dot_ssh:
-    external:
-      name: ${DOT_SSH}
   bin:
     external:
       name: ${BIN}
+  sudo:
+    external:
+      name: ${SUDO}
+  sbin:
+    external:
+      name: ${SBIN}
   gitlab-config:
   gitlab-logs:
   gitlab-data:
@@ -30,8 +30,9 @@ services:
     volumes:
       - home:/home
       - workspace:/opt/workspace
-      - dot_ssh:/srv/dot_ssh:ro
-      - bin:/srv/bin:ro
+      - bin:/usr/local/bin:ro
+      - sudo:/etc/sudoers.d:ro
+      - sbin:/usr/local/sbin:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     command: --listen 0.0.0.0 -w /opt/workspace/workspace --auth user:password
