@@ -28,7 +28,6 @@ services:
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - home:/home
       - workspace:/opt/workspace
       - bin:/usr/local/bin:ro
       - sudo:/etc/sudoers.d:ro
