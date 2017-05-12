@@ -1,8 +1,8 @@
 version: "3"
 volumes:
-  homey:
+  workspace:
     external:
-      name: ${HOMEY}
+      name: ${WORKSPACE}
   bin:
     external:
       name: ${BIN}
@@ -23,17 +23,17 @@ services:
       - DISPLAY
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - homey:/home
+      - workspace:/opt/home
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
-      - homey:/home
+      - workspace:/opt/home
       - bin:/usr/local/bin:ro
       - sudo:/etc/sudoers.d:ro
       - sbin:/usr/local/sbin:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-    command: --listen 0.0.0.0 -w /home/user/workspace --auth user:password
+    command: --listen 0.0.0.0 -w /opt/home/user/workspace --auth user:password
   gitlab:
     image: gitlab/gitlab-ce:latest
     restart: always
