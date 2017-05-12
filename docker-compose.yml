@@ -23,7 +23,7 @@ services:
       - DISPLAY
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - workspace:/opt/workspace
+      - homey:/home
   luckystar:
     image: wildwarehouse/cloud9:0.0.0
     volumes:
